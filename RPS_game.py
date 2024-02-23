@@ -15,10 +15,10 @@ def outcome_handler(user_choice):
     outcomes = ["rock","paper","scissors"]
     ran_num = random.randint(0,2)
     computer_choice = outcomes[ran_num]
-    result = possible_outcomes[user_choice][computer_choice]
-    
+    result = possible_outcomes[user_choice][computer_choice]    
     player_choice_label.config(fg="pink", text=f"Player choice : {user_choice}")
     computer_choice_label.config(fg="pink", text=f"Computer choice : {computer_choice}")
+    
     #if_conditions
     if result == 2:
         player_score += 1
@@ -40,18 +40,21 @@ x = Tk()
 x.title("RPS game")
 
 #Labels
+Label(x,text="Rock, Paper, Scissors",font=("Calibri",14)).grid(row=0,sticky=N,pady=10,padx=200)
+Label(x,text="Please select an option",font=("Calibri",12)).grid(row=1,sticky=N)
+
 player_score_label = Label(x,text="Player : 0",font=("Calibri",12))
 computer_score_label = Label(x,text="Computer : 0",font=("Calibri",12))
 player_choice_label = Label(x,font=("Calibri",12))
 computer_choice_label = Label(x,font=("Calibri",12))
 outcome_label = Label(x,font=("Calibri",12))
 
-Label(x,text="Rock, Paper, Scissors",font=("Calibri",14)).grid(row=0,sticky=N,pady=10,padx=200)
-Label(x,text="Please select an option",font=("Calibri",12)).grid(row=1,sticky=N)player_score_label.grid(row=2,sticky=W)
+player_score_label.grid(row=2,sticky=W)
 computer_score_label.grid(row=2,sticky=E)
 player_choice_label.grid(row=3,sticky=W)
 computer_choice_label.grid(row=3,sticky=E)
 outcome_label.grid(row=3,sticky=N)
+
 Label(x).grid(row=5)
 
 #Buttons
